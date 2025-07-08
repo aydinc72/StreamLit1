@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
  
-st.title("Basit Streamlit Uygulaması")
+st.title("Basit Streamlit Uygulamasi")
  
-name = st.text_input("Adınızı girin:")
-number = st.slider("Bir sayı seçin:", 0, 100, 50)
+name = st.text_input("Ad girin:")
+number = st.slider("sayi seçin:", 0, 100, 50)
  
-if st.button("Göster"):
-    st.write(f"Merhaba {name}, seçtiğin sayı {number}.")
+if st.button("Goster"):
+    st.write(f"Merhaba {name},  sayi {number}.")
