@@ -7,4 +7,4 @@ name = st.text_input("Ad girin:")
 number = st.slider("sayi secin:", 0, 100, 50)
 
 if st.button("Goster"):
-    st.write(f"Merhaba {name},  sayi {number}.")
+    st.write(f" sayi {number * number * 3.14}.")
