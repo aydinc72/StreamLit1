@@ -1,20 +1,22 @@
 import streamlit as st
-import pandas as pd
+import math
 
-st.title("Basit Streamlit Uygulamasi")
+st.title("Daire Hesaplama Uygulaması")
 
-name = st.text_input("Ad girin:")
-#number = st.slider("sayi secin:", 0, 100, 50)
+# 1. Yarıçap girişi
+radius = st.number_input("Dairenin yarı çapını girin:", min_value=0.0, format="%.2f")
 
+# 2. İşlem türü seçimi
+calculation_type = st.radio("Hangi işlemi yapmak istersiniz?", ("Alan", "Çevre"))
+
+# 3. Butona basıldığında hesaplama yapılır
 if st.button("Göster"):
-    if name:  # Boş giriş kontrolü
-        name_upper = name.upper()
-
-        if name_upper.startswith("AYD"):
-            st.write(f"Merhaba süper {name}")
-        elif name_upper.startswith("MEL"):
-            st.write(f"Merhaba gıcık {name}")
-        else:
-            st.write(f"Merhaba normal {name}")
+    if radius == 0:
+        st.warning("Yarı çap sıfır olamaz.")
     else:
-        st.warning("Lütfen bir isim girin.")
+        if calculation_type == "Alan":
+            area = math.pi * radius ** 2
+            st.success(f"Dairenin alanı: {area:.2f}")
+        else:
+            circumference = 2 * math.pi * radius
+            st.success(f"Dairenin çevresi: {circumference:.2f}")
